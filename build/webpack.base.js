@@ -27,14 +27,17 @@ function assetsPath(_path_) {
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: './src/index',
+  entry: './src/main',
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].[hash].bundle.js'
   },
   resolve: {
     extensions: [".js",".css",".json"],
-    alias: {} //配置别名可以加快webpack查找模块的速度
+    //配置别名可以加快webpack查找模块的速度
+    alias: {
+      src: path.resolve(__dirname, '../src')
+    }
   },
   module: {
     // 多个loader是有顺序要求的，从右往左写，因为转换的时候是从右往左转换的
